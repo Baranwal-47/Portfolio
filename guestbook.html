@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guestbook — Utkarsh Baranwal</title>
+<meta name="description" content="Say hello, drop feedback, or just prove you were here.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="narrow phead">
+  <div class="clip"><span class="kicker" style="display:block">Leave your signature</span></div>
+  <div class="clip"><h1 style="animation-delay:.12s">Guestbook</h1></div>
+  <div class="clip"><p style="animation-delay:.24s;font-size:clamp(18px,1.8vw,24px);line-height:1.4">Say hello, drop feedback, or just <em style="color:var(--ink)">prove you were here.</em></p></div>
+</header>
+
+<section class="narrow" style="padding-bottom:60px">
+  <form class="panel gform" id="gform">
+    <input id="gname" name="name" placeholder="Your name" maxlength="60" required autocomplete="name">
+    <textarea id="gmsg" name="message" placeholder="Your message…" rows="3" maxlength="500" required></textarea>
+    <div class="gform__foot">
+      <small>STORED LOCALLY IN YOUR BROWSER — WIRE TO A DB ON DEPLOY</small>
+      <button type="submit">Sign ✦</button>
+    </div>
+  </form>
+</section>
+
+<section class="narrow" style="padding-bottom:130px">
+  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:24px">
+    <span class="kicker">Recent signatures</span>
+    <span class="acc" style="font:400 11px/1 var(--mono)" id="gcount">00</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px" id="gfeed"></div>
+</section>
+
+<script src="assets/site.js"></script>
+<script>
+// ponytail: localStorage only — no backend to run, no spam to moderate.
+// Swap `load`/`save` for fetch() calls when you want signatures shared across visitors.
+(function () {
+  var KEY = 'ub-guestbook';
+  var SEED = [
+    { name: 'Placeholder Visitor', date: 'JUL 12, 2026', msg: 'Love the dark editorial vibe — that sticky project stack on the home page is slick.' },
+    { name: 'Another Placeholder', date: 'JUL 05, 2026', msg: 'The DPI engine write-up convinced me to finally learn C++ threading. Thanks!' },
+    { name: 'First Signature', date: 'JUN 28, 2026', msg: 'Signed before it was cool. ✦' }
+  ];
+  var feed = document.getElementById('gfeed');
+  var count = document.getElementById('gcount');
+  var form = document.getElementById('gform');
+  var nameEl = document.getElementById('gname');
+  var msgEl = document.getElementById('gmsg');
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; }
+  }
+
+  // textContent everywhere: visitor input is never parsed as HTML.
+  function card(e) {
+    var el = document.createElement('div');
+    el.className = 'sig';
+    var head = document.createElement('div');
+    head.className = 'sig__head';
+    var b = document.createElement('b');
+    b.textContent = e.name;
+    var t = document.createElement('time');
+    t.textContent = e.date;
+    head.append(b, t);
+    var p = document.createElement('p');
+    p.textContent = e.msg;
+    el.append(head, p);
+    return el;
+  }
+
+  function render() {
+    var all = load().concat(SEED);
+    feed.replaceChildren.apply(feed, all.map(card));
+    count.textContent = String(all.length).padStart(2, '0');
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var name = nameEl.value.trim(), msg = msgEl.value.trim();
+    if (!name || !msg) return;
+    var date = new Date().toLocaleDateString('en-US',
+      { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+    try { localStorage.setItem(KEY, JSON.stringify([{ name: name, msg: msg, date: date }].concat(load()))); } catch (e) {}
+    form.reset();
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
