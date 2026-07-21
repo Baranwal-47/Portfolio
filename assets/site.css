@@ -70,7 +70,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 .nav__pills a[aria-current]{background:var(--ink);color:var(--bg)}
 .nav__side{display:flex;align-items:center;gap:18px;font:500 13px/1 var(--body)}
 .nav__side a{color:var(--sub)}
-.nav__side a:hover{color:var(--ink)}
+.nav__side a:hover,.nav__side a[aria-current]{color:var(--ink)}
 .nav__cta{padding:8px 16px;border:1px solid var(--line-2);border-radius:999px;color:var(--ink)!important}
 .nav__cta:hover{border-color:var(--acc);color:var(--acc)!important}
 .nav__k{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);
