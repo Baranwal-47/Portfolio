@@ -174,6 +174,25 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 .quote figcaption b{font:700 14px/1.3 var(--body)}
 .quote figcaption span{font:400 11px/1.4 var(--mono);letter-spacing:.1em;color:var(--faint)}
 
+/* ---------- uses ---------- */
+.uhead{border-top:1px solid var(--line);padding-top:28px;margin-bottom:40px;
+  display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
+.uhead > span{font:600 12px/1 var(--mono);letter-spacing:.14em;color:var(--acc)}
+.uhead h2{margin-bottom:14px;font:400 clamp(32px,3.4vw,52px)/1 var(--display);text-transform:uppercase}
+.uhead p{max-width:720px;font:400 15.5px/1.65 var(--body);color:var(--sub);text-wrap:pretty}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.hw{display:flex;flex-direction:column;gap:12px}
+.hw__img{height:230px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+.hw__img > *{width:100%;height:100%;object-fit:cover}
+.hw figcaption{font:700 15px/1.3 var(--body)}
+.tool{display:flex;align-items:center;gap:16px;padding:22px;border:1px solid var(--line);
+  border-radius:16px;background:var(--panel);transition:border-color .3s var(--exp)}
+.tool:hover{border-color:var(--acc)}
+.tool img{width:30px;height:30px;flex:none}
+.tool div{display:flex;flex-direction:column;gap:4px}
+.tool b{font:700 15px/1.2 var(--body)}
+.tool span{font:400 10.5px/1.4 var(--mono);letter-spacing:.08em;color:var(--faint)}
+
 /* ---------- links: numbered rows ---------- */
 .lhead{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding:150px 0 80px}
 .lhead h1{margin:16px 0 0;font:400 clamp(56px,8.4vw,136px)/.95 var(--display);text-transform:uppercase}
@@ -273,6 +292,11 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   .proj{grid-template-columns:1fr;padding:28px;position:static}
   .proj__shots{min-height:0}
   .cards3{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .uhead,.job{grid-template-columns:1fr;gap:20px}
+  .post,.lrow{grid-template-columns:1fr;gap:12px}
+  .post__end,.lrow__go{flex-direction:row;align-items:center;justify-content:flex-start}
   .nav__pills,.nav__side a:not(.nav__cta){display:none}
 }
 @media (max-width:640px){
