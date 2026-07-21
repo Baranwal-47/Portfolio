@@ -174,6 +174,33 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 .quote figcaption b{font:700 14px/1.3 var(--body)}
 .quote figcaption span{font:400 11px/1.4 var(--mono);letter-spacing:.1em;color:var(--faint)}
 
+/* ---------- about: experience timeline ---------- */
+.sectag{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.sectag h2{font:400 clamp(28px,3vw,44px)/1.05 var(--display);text-transform:uppercase}
+.job{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:44px 0;border-top:1px solid var(--line)}
+.job__meta{display:flex;flex-direction:column;gap:10px}
+.job__meta .period{font:600 11px/1.5 var(--mono);letter-spacing:.14em;color:var(--acc)}
+.job__meta span:not(.period){font:400 12px/1.5 var(--mono);letter-spacing:.1em;color:var(--faint)}
+.job__body{display:flex;flex-direction:column;gap:16px}
+.job__body h3{font:400 clamp(34px,3.6vw,56px)/1 var(--display);text-transform:uppercase}
+.job__body .role{font:700 17px/1.3 var(--body)}
+.job__body ul{display:flex;flex-direction:column;gap:10px}
+.job__body li{display:flex;gap:10px;font:400 15px/1.6 var(--body);color:var(--sub);text-wrap:pretty}
+.job__body li::before{content:"✦";color:var(--acc)}
+.job__chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.tag{padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel);
+  font:500 12px/1 var(--body);color:var(--sub);transition:all .3s var(--exp)}
+.tag:hover{border-color:var(--acc);color:var(--ink)}
+
+/* github contribution grid */
+.gh{padding:30px;overflow-x:auto}
+.gh__grid{display:grid;grid-template-rows:repeat(7,11px);grid-auto-flow:column;grid-auto-columns:11px;gap:3px}
+.gh__grid span{width:11px;height:11px;border-radius:2.5px}
+.gh__legend{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;
+  font:400 11px/1 var(--mono);letter-spacing:.1em;color:var(--faint)}
+.gh__legend div{display:flex;align-items:center;gap:5px}
+.gh__legend i{width:10px;height:10px;border-radius:2px;display:block}
+
 /* ---------- footer ---------- */
 .foot{border-top:1px solid var(--line);padding:90px 28px 28px;overflow:hidden}
 .foot__top{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;
