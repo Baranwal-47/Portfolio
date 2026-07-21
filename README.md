@@ -36,4 +36,3 @@ Any static host. GitHub Pages: Settings → Pages → deploy from `main` / root.
 - **Guestbook** — signatures live in the visitor's own `localStorage`. Point it at a DB to share them.
 - **Book a call** — the picker opens a prefilled `mailto:`. Swap for a cal.com embed.
 
-Design source: Claude Design project `Home.dc.html` + `design.md`.
