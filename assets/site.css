@@ -174,6 +174,21 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 .quote figcaption b{font:700 14px/1.3 var(--body)}
 .quote figcaption span{font:400 11px/1.4 var(--mono);letter-spacing:.1em;color:var(--faint)}
 
+/* ---------- links: numbered rows ---------- */
+.lhead{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding:150px 0 80px}
+.lhead h1{margin:16px 0 0;font:400 clamp(56px,8.4vw,136px)/.95 var(--display);text-transform:uppercase}
+.lhead__ava{flex:none;width:190px;height:190px;border:1px solid rgba(255,255,255,.15);border-radius:50%;padding:7px}
+.lhead__ava > *{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.lrow{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:28px;padding:36px 10px;
+  border-top:1px solid var(--line);transition:padding-left .35s var(--exp)}
+.lrow:hover{padding-left:30px;color:var(--acc)}
+.lrow__idx{font:400 13px/1 var(--mono);color:var(--faint)}
+.lrow__main{display:flex;flex-direction:column;gap:6px}
+.lrow__main b{font:400 clamp(36px,4.6vw,68px)/.95 var(--display);text-transform:uppercase}
+.lrow__main span{font:400 13px/1.4 var(--mono);letter-spacing:.06em;color:var(--faint)}
+.lrow__go{display:flex;align-items:center;gap:12px;font:600 11px/1 var(--mono);letter-spacing:.14em;color:var(--sub)}
+.lrow__go i{font-size:24px;color:var(--acc);font-style:normal}
+
 /* ---------- blogs: post rows ---------- */
 .post{display:grid;grid-template-columns:150px 1fr auto;gap:32px;align-items:baseline;
   padding:34px 8px;border-top:1px solid var(--line);transition:padding-left .35s var(--exp)}
